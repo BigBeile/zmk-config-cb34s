@@ -10,11 +10,9 @@
 #include "keymap_eurkey_swiss_de.h"
 
 #define DEFAULT_L 	0
-#define NUMSYM_L 	1
-#define NAV_L 		2
-#define BLE_L 		3
-#define COMFY_L		4
-#define NUMBERS_L	5
+#define NUM_L 	1
+#define Sym_L 		2
+
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 
