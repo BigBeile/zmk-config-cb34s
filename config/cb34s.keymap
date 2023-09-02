@@ -280,10 +280,10 @@
         default_layer {
             label = "Base";
             bindings = <
-&mt DEL Q  &kp W  &kp E      &kp R      &kp T           &kp Y        &kp U      &kp I     &kp O    &kp P
-    &kp A  &kp S  &kp D      &kp F      &kp G           &kp H        &kp J      &kp K     &kp L    &kp BACKSPACE
-    &kp Z  &kp X  &kp C      &kp V      &kp B           &kp N        &kp M      &kp COMMA &kp DOT  &mo 1
-                             &kp LCTRL  &kp SPACE       &kp RSHIFT   &kp RALT
+ &kp Q       &kp W        &kp E   &kp R   &kp T                   &kp Y   &kp U   &kp I       &kp O        &kp P
+            &kp A       &mt LCTRL S  &kp D   &kp F   &kp G                   &kp H   &kp J   &kp K       &mt RALT L   &kp SEMI
+            &mt LSHFT Z &kp X        &kp C   &kp V   &kp B   &kp C_MUTE      &kp N   &kp M   &kp COMMA   &mt LGUI DOT &mt RSHFT FSLH
+                                     &mt LALT DEL   &kp SPACE       		 &lt 2 BSPC       &lt 1 RET
             >;
         };
 
@@ -301,11 +301,11 @@
         numsym_layer {
             label = "Symbols";
             bindings = <
-    &mt F1 N1  &mt F2 N2  &mt F3 N3  &mt F4 N4      &mt F5 N5           &kp N6          &kp N7      &kp N8      &kp N9   &kp N0
-    &kp TAB    &kp UNDER  &kp MINUS  &kp EQUAL      &kp LS(EQUAL)       &mt RBKT LBKT   &kp AT      &mt DQT SQT &kp DQT  &kp DEL
-    &kp LGUI   &kp EXCL   &kp QMARK  &mt COLON SEMI &kp COLON           &mt RBRC LBRC   &kp FSLH    &kp PIPE    &kp BSLH &trans
-                                     &kp LALT       &sk LEFT_GUI        &to 2    &trans
-            >;
+            >;&none     &none        &none      &none        &none                  &none         &none          &none          &none         &none      
+            &kp TAB   &bt BT_PRV   &bt BT_NXT &kp C_VOL_DN &kp C_VOL_UP           &kp LEFT      &kp DOWN       &kp UP         &kp RIGHT     &kp SQT
+            &kp LSHFT &bt BT_SEL 0 &bt BT_CLR &kp C_MUTE   &kp LALT      &none    &kp HOME      &kp END        &kp PG_UP      &kp PG_DN     &kp RSHFT
+                                              &kp LGUI     &kp LCTRL              &trans        &kp LALT
+             >;
         };
 
         // ===========================================================================================================
@@ -322,73 +322,10 @@
         nav_layer {
             label = "Nav";
             bindings = <
-   &kp ESC     &kp O  &kp E      &kp R      &kp P           &kp PG_UP   &kp LC(LEFT) &kp UP     &kp LC(RIGHT) &kp DEL
-   &kp DEL     &kp S  &kp D      &kp F      &kp L           &kp PG_DN   &kp LEFT     &kp DOWN   &kp RIGHT  	  &mt LC(BACKSPACE) BACKSPACE
-   &kp LSHIFT  &kp X  &kp C      &kp V      &to 0           &kp HOME    &kp GRAVE    &kp TILDE  &none		  &to 0
-                          		 &kp LCTRL  &kp SPACE       &kp LSHIFT  &kp LCTRL
-            >;
-        };
-
-        // ===========================================================================================================
-        // -----------------------------------------------------------------------------
-        /* 3 = Bluetooth
-	.----------------------------------------------------------------------.
-	| BT0 | BT1 | BT2 | BTP | BTN |     	 | BTN | BTP | BT2 | BT1 | BT0 |
-	|     |     |     |     | BLC |     	 | BLC |     |     |     |     |
-	|TO_0 |     |     |     | BLO |          | BLO |     |     |	 |TO_0 |
-	'-----------------\     |TO_0 |          |TO_0 |     /-----------------'
-	                   '--------------------------------'
-*/
-
-        ble_layer {
-            label = "BLE";
-            bindings = <
-&bt BT_SEL 0  	&bt BT_SEL 1  &bt BT_SEL 2  &bt BT_PRV  &bt BT_NXT		&bt BT_NXT	&bt BT_PRV  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0
-&none    	    &none         &none         &none	    &bt BT_CLR    	&bt BT_CLR  &none       &none         &none         &none
-&to 0 		    &none         &none         &none       &bootloader    	&bootloader &none       &none         &none         &to 0
-                                	        &none       &to 0          	&to 0       &none
-            >;
-        };
-
-        // ===========================================================================================================
-        // -----------------------------------------------------------------------------
-        /* 4 = Comfort
-	.----------------------------------------------------------------------.
-	| TIL | ← ← |  ↑  | → → |  ^  |     	 |PGUP | ← ← |  ↑  | → → | DEL |
-	| DEL |  ←  |  ↓  |  →  |  <  |     	 |PGDN |  ←  |  ↓  |  →  |BKSPC|
-	| SFT | DEL |BKSPC|     |  >  |          |HOME |  `  |  ~  |     |TO_0 |
-	'-----------------\ CTRL| SPC |          |SHFT |CTRL /-----------------'
-	                   '--------------------------------'
-*/
-
-        comfy_layer {
-            label = "COMFY";
-            bindings = <
- &kp TILDE  &kp LC(LEFT) &kp UP         &kp LC(RIGHT) &kp CARET            &kp PG_UP   &kp LC(LEFT) &kp UP     &kp LC(RIGHT)  &kp DEL
- &kp DEL    &kp LEFT     &kp DOWN       &kp RIGHT     &kp LESS_THAN        &kp PG_DN   &kp LEFT     &kp DOWN   &kp RIGHT  	  &mt LC(BACKSPACE) BACKSPACE
- &kp LSHIFT &kp DEL      &kp BACKSPACE  &none         &kp GREATER_THAN     &kp HOME    &kp GRAVE    &kp TILDE  &none		  &to 0
-                                        &kp LCTRL     &kp SPACE            &kp LSHIFT  &kp LCTRL
-            >;
-        };
-
-        // ===========================================================================================================
-        // -----------------------------------------------------------------------------
-        /* 5 = Numbers
-	.----------------------------------------------------------------------.
-	|  /  |  7  |  8  |  9  |  *  |     	 |  *  |  7  |  8  |  9  |  /  |
-	|BKSPC|  4  |  5  |  6  |  +  |     	 |  +  |  4  |  5  |  6  |BKSPC|
-	|  0  |  1  |  2  |  3  |  -  |          |  -  |  1  |  2  |  3  |  0  |
-	'-----------------\ SHFT| SPC |          | SPC |SHFT /-----------------'
-	                   '--------------------------------'
-*/
-
-        numbers_layer {
-            label = "NUMBERS";
-            bindings = <
- &kp KP_DIVIDE  &kp N7   &kp N8   &kp N9      &kp KP_MULTIPLY      &kp KP_MULTIPLY  &kp N7  &kp N8  &kp N9  &kp KP_DIVIDE
- &kp BACKSPACE  &kp N4   &kp N5   &kp N6      &kp KP_PLUS          &kp KP_PLUS      &kp N4  &kp N5  &kp N6  &kp BACKSPACE
- &kp N0         &kp N1   &kp N2   &kp N3      &kp KP_MINUS         &kp KP_MINUS     &kp N1  &kp N2  &kp N3  &kp N0
-                                  &kp LSHIFT  &kp SPACE            &kp SPACE        &kp LSHIFT
+   &kp ESC   &kp N7 &kp N8  &kp N9     &kp N0           &out OUT_USB &out OUT_BLE &none      &kp EQUAL   &kp MINUS
+            &none     &kp N4 &kp N5  &kp N6    &none             &kp LBKT     &kp RBKT     &none      &kp GRAVE   &kp BSLH
+            &kp LSHFT &kp N1 &kp N2  &kp N3  &none      &none    &none        &none        &sys_reset &bootloader &kp RSHFT
+                                     &kp LGUI &kp LCTRL          &kp LALT     &trans
             >;
         };
     };
